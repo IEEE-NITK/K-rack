@@ -1,1 +1,0 @@
-cmd_/media/adithya/ADITHYA/Programs/Kernel-Modules/Exercise3/module3.ko := ld -r -m elf_x86_64 -T ./scripts/module-common.lds --build-id  -o /media/adithya/ADITHYA/Programs/Kernel-Modules/Exercise3/module3.ko /media/adithya/ADITHYA/Programs/Kernel-Modules/Exercise3/module3.o /media/adithya/ADITHYA/Programs/Kernel-Modules/Exercise3/module3.mod.o

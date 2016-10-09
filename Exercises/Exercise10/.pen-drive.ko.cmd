@@ -1,1 +1,0 @@
-cmd_/media/adithya/ADITHYA/Programs/Kernel-Modules/Exercise10/pen-drive.ko := ld -r -m elf_x86_64 -T ./scripts/module-common.lds --build-id  -o /media/adithya/ADITHYA/Programs/Kernel-Modules/Exercise10/pen-drive.ko /media/adithya/ADITHYA/Programs/Kernel-Modules/Exercise10/pen-drive.o /media/adithya/ADITHYA/Programs/Kernel-Modules/Exercise10/pen-drive.mod.o

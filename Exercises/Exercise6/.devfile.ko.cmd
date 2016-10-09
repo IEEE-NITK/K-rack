@@ -1,1 +1,0 @@
-cmd_/media/adithya/ADITHYA/Programs/Kernel-Modules/Exercise6/devfile.ko := ld -r -m elf_x86_64 -T ./scripts/module-common.lds --build-id  -o /media/adithya/ADITHYA/Programs/Kernel-Modules/Exercise6/devfile.ko /media/adithya/ADITHYA/Programs/Kernel-Modules/Exercise6/devfile.o /media/adithya/ADITHYA/Programs/Kernel-Modules/Exercise6/devfile.mod.o
