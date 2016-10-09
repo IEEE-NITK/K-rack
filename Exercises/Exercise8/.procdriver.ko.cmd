@@ -1,0 +1,1 @@
+cmd_/media/adithya/ADITHYA/Programs/Kernel-Modules/Exercise8/procdriver.ko := ld -r -m elf_x86_64 -T ./scripts/module-common.lds --build-id  -o /media/adithya/ADITHYA/Programs/Kernel-Modules/Exercise8/procdriver.ko /media/adithya/ADITHYA/Programs/Kernel-Modules/Exercise8/procdriver.o /media/adithya/ADITHYA/Programs/Kernel-Modules/Exercise8/procdriver.mod.o
