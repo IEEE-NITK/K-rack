@@ -54,6 +54,12 @@ static struct usb_device_id table_of_pen_drive_ids[] =
     {} /* Terminating entry */
 };
 
+/*
+ *  This macro says, "Hey Mr Kernel, please add the following
+ *                    values into your USB Module tables and
+ *                    Please let me know if my IDs are inserted" .
+ */
+
 MODULE_DEVICE_TABLE (usb, table_of_pen_drive_ids);
 
 
