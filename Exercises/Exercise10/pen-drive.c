@@ -54,7 +54,7 @@ static struct usb_device_id table_of_pen_drive_ids[] =
     {} /* Terminating entry */
 };
 
-MODULE_DEVICE_TABLE (usb, pen_table);
+MODULE_DEVICE_TABLE (usb, table_of_pen_drive_ids);
 
 
 /*
@@ -94,5 +94,5 @@ static int __init pdrive_init(void)
 
 static void __exit pdrive_exit(void)
 {
-    usb_deregister(&pen_driver);
+    usb_deregister(&my_driver);
 }
