@@ -49,7 +49,7 @@ static struct usb_device_id table_of_pen_drive_ids[] =
      *  followed by the id in hexadecimal
      */
     {
-        USB_DEVICE(0x930,0x6545)
+        USB_DEVICE(0x05dc,0xa81d)
     },
     {} /* Terminating entry */
 };
