@@ -65,7 +65,6 @@
             FS must already be visible
  */
 
-
 struct file_system_type myfs_type = {
     .owner = THIS_MODULE,
     .name  = "myfs",
