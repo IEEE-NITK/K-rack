@@ -7,12 +7,18 @@ int myfs_fill_sb(
     int silent)
 {
     struct inode *root = NULL;
+    /*
+     *  Creating an inode for the root directory.
+     */
     sb->s_magic = MYFS_MAGIC_NUMBER;
     /*
      *  MYFS_MAGIC_NUMBER must be defined in /include/api/linux/magic.h
      *  and it must be unique.
      */
     sb->s_op = &myfs_super_ops;
+    /*
+     *  Setting the superblock operations structures to our predefined structure
+     */
 
     root = new_inode(sb);
     if(!root)
