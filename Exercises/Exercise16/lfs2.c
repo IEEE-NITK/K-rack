@@ -11,7 +11,7 @@
 #include <linux/kernel.h>
 #include <linux/init.h>
 #include <linux/module.h>
-#include <linux/pagemap.h> 	/* PAGE_CACHE_SIZE */
+#include <asm/page.h> 	/* PAGE_SIZE */
 #include <linux/fs.h>     	/* This is where libfs stuff is declared */
 #include <asm/atomic.h>
 #include <asm/uaccess.h>	/* copy_to_user */
@@ -134,7 +134,7 @@ static ssize_t lfs_write_file(struct file *filp, const char *buf,
  * Now we can put together our file operations structure.
  */
 static struct file_operations lfs_file_ops = {
-	.open	= lfs_open,
+	.open	= simple_open,
 	.read 	= lfs_read_file,
 	.write  = lfs_write_file,
 };
@@ -155,17 +155,18 @@ static struct dentry *lfs_create_file (struct super_block *sb,
  */
 	qname.name = name;
 	qname.len = strlen (name);
-	qname.hash = full_name_hash(name, qname.len);
+	qname.hash = full_name_hash(0,name, qname.len);
+	pr_info("%u\n",qname.hash);
 /*
  * Now we can create our dentry and the inode to go with it.
  */
 	dentry = d_alloc(dir, &qname);
 	if (! dentry)
 		goto out;
-	inode = lfs_make_inode(sb, S_IFREG | 0644);
+	inode = lfs_make_inode(sb, S_IFREG | 00777);
 	if (! inode)
 		goto out_dput;
-	inode->i_fop = &lfs_file_ops;
+	inode->i_fop = &simple_dir_operations;
 	inode->i_private = counter;
 /*
  * Put it all into the dentry cache and we're done.
@@ -186,7 +187,7 @@ static struct dentry *lfs_create_file (struct super_block *sb,
  * Create a directory which can be used to hold files.  This code is
  * almost identical to the "create file" logic, except that we create
  * the inode with a different mode, and use the libfs "simple" operations.
- */
+ 
 static struct dentry *lfs_create_dir (struct super_block *sb,
 		struct dentry *parent, const char *name)
 {
@@ -196,12 +197,13 @@ static struct dentry *lfs_create_dir (struct super_block *sb,
 
 	qname.name = name;
 	qname.len = strlen (name);
-	qname.hash = full_name_hash(name, qname.len);
+	qname.hash = full_name_hash(0,name, qname.len);
+	pr_info("Dir:%u\n",qname.hash);
 	dentry = d_alloc(parent, &qname);
 	if (! dentry)
 		goto out;
 
-	inode = lfs_make_inode(sb, S_IFDIR | 0644);
+	inode = lfs_make_inode(sb, S_IFDIR | 0777);
 	if (! inode)
 		goto out_dput;
 	inode->i_op = &simple_dir_inode_operations;
@@ -215,7 +217,7 @@ static struct dentry *lfs_create_dir (struct super_block *sb,
   out:
 	return 0;
 }
-
+*/
 
 
 /*
@@ -225,19 +227,19 @@ static atomic_t counter, subcounter;
 
 static void lfs_create_files (struct super_block *sb, struct dentry *root)
 {
-	struct dentry *subdir;
+	//struct dentry *subdir;
 /*
  * One counter in the top-level directory.
  */
 	atomic_set(&counter, 0);
-	lfs_create_file(sb, root, "counter", &counter);
+	pr_info("Create File Debug %p\n",lfs_create_file(sb, root, "counter", &counter));
 /*
  * And one in a subdirectory.
  */
-	atomic_set(&subcounter, 0);
-	subdir = lfs_create_dir(sb, root, "subdir");
-	if (subdir)
-		lfs_create_file(sb, subdir, "subcounter", &subcounter);
+	//atomic_set(&subcounter, 0);
+	//subdir = lfs_create_dir(sb, root, "subdir");
+	//if (subdir)
+		//lfs_create_file(sb, subdir, "subcounter", &subcounter);
 }
 
 
@@ -266,8 +268,8 @@ static int lfs_fill_super (struct super_block *sb, void *data, int silent)
 /*
  * Basic parameters.
  */
-	sb->s_blocksize = PAGE_CACHE_SIZE;
-	sb->s_blocksize_bits = PAGE_CACHE_SHIFT;
+	sb->s_blocksize = PAGE_SIZE;
+	sb->s_blocksize_bits = PAGE_SHIFT;
 	sb->s_magic = LFS_MAGIC;
 	sb->s_op = &lfs_s_ops;
 /*
@@ -276,7 +278,7 @@ static int lfs_fill_super (struct super_block *sb, void *data, int silent)
  * don't have to mess with actually *doing* things inside this
  * directory.
  */
-	root = lfs_make_inode (sb, S_IFDIR | 0755);
+	root = lfs_make_inode (sb, S_IFDIR | 0777);
 	if (! root)
 		goto out;
 	root->i_op = &simple_dir_inode_operations;
@@ -317,7 +319,7 @@ static struct dentry *lfs_get_super(struct file_system_type *fst,
 
 static struct file_system_type lfs_type = {
 	.owner 		= THIS_MODULE,
-	.name		= "lwnfs",
+	.name		= "lfs",
 	.mount		= lfs_get_super,
 	.kill_sb	= kill_litter_super,
 };

@@ -130,6 +130,7 @@ int myfs_fill_sb(
      */
 
     sb->s_magic = MYFS_MAGIC_NUMBER;
+    
     /*
      *  MYFS_MAGIC_NUMBER must be defined in /include/api/linux/magic.h
      *  and it must be unique.
@@ -138,7 +139,8 @@ int myfs_fill_sb(
     /*
      *  Setting the superblock operations structures to our predefined structure
      */
-
+	sb->s_blocksize = PAGE_SIZE;
+	sb->s_blocksize_bits = PAGE_SHIFT;
     root = new_inode(sb);
     /*
      *      new_inode_pseudo        - obtain an inode
@@ -196,9 +198,11 @@ int myfs_fill_sb(
 
     root->i_ino = 0;
     root->i_sb = sb;
+    pr_info("%d is the mode\n",0777);
     root->i_atime = root->i_mtime = root->i_ctime = CURRENT_TIME;
-
-    inode_init_owner(root,NULL,S_IFDIR);
+	root->i_op = &simple_dir_inode_operations;
+	root->i_fop = &simple_dir_operations;
+    inode_init_owner(root,NULL,S_IFDIR | 0777);
 
     sb->s_root = d_make_root(root);
     /*
@@ -229,9 +233,11 @@ int myfs_fill_sb(
 
 void myfs_put_super(struct super_block *sb)
 {
-    pr_debug("aufs super block destroyed\n");
+    pr_debug("myfs super block destroyed\n");
 }
 
 struct super_operations const myfs_super_ops = {
     .put_super = myfs_put_super,
+    .statfs = simple_statfs,
+    .drop_inode = generic_delete_inode,
 };
