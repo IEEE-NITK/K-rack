@@ -25,7 +25,7 @@ static void __exit exit_my_fs(void)
 }
 
 MODULE_AUTHOR("Adithya Bhat");
-MODULE_DESCRIPTION("My Filesystem");
+MODULE_DESCRIPTION("mcryptfs");
 MODULE_LICENSE("GPL");
 module_init(init_my_fs);
 module_exit(exit_my_fs);

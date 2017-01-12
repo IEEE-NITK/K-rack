@@ -157,11 +157,11 @@ struct dentry* myfs_mount(
      */
     if(IS_ERR(entry))
     {
-        pr_info("myfs mounting failed.\n");
+        pr_info("mcryptfs mounting failed.\n");
     }
     else
     {
-        pr_info("myfs mounting successful.\n");
+        pr_info("mcryptfs mounting successful.\n");
     }
     return entry;
 }

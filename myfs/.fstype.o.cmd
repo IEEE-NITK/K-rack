@@ -1,8 +1,8 @@
-cmd_/run/media/adithya/Media/Adithya-Backup/Programs/Kernel-Modules/K-rack/Exercises/Exercise15/mount.o := gcc -Wp,-MD,/run/media/adithya/Media/Adithya-Backup/Programs/Kernel-Modules/K-rack/Exercises/Exercise15/.mount.o.d  -nostdinc -isystem /usr/lib/gcc/x86_64-pc-linux-gnu/6.2.1/include -I./arch/x86/include -I./arch/x86/include/generated/uapi -I./arch/x86/include/generated  -I./include -I./arch/x86/include/uapi -I./include/uapi -I./include/generated/uapi -include ./include/linux/kconfig.h -D__KERNEL__ -Wall -Wundef -Wstrict-prototypes -Wno-trigraphs -fno-strict-aliasing -fno-common -Werror-implicit-function-declaration -Wno-format-security -std=gnu89 -fno-PIE -mno-sse -mno-mmx -mno-sse2 -mno-3dnow -mno-avx -m64 -falign-jumps=1 -falign-loops=1 -mno-80387 -mno-fp-ret-in-387 -mpreferred-stack-boundary=3 -mskip-rax-setup -mtune=generic -mno-red-zone -mcmodel=kernel -funit-at-a-time -maccumulate-outgoing-args -DCONFIG_AS_CFI=1 -DCONFIG_AS_CFI_SIGNAL_FRAME=1 -DCONFIG_AS_CFI_SECTIONS=1 -DCONFIG_AS_FXSAVEQ=1 -DCONFIG_AS_SSSE3=1 -DCONFIG_AS_CRC32=1 -DCONFIG_AS_AVX=1 -DCONFIG_AS_AVX2=1 -DCONFIG_AS_AVX512=1 -DCONFIG_AS_SHA1_NI=1 -DCONFIG_AS_SHA256_NI=1 -pipe -Wno-sign-compare -fno-asynchronous-unwind-tables -fno-delete-null-pointer-checks -Wno-frame-address -O2 --param=allow-store-data-races=0 -Wframe-larger-than=2048 -fstack-protector-strong -Wno-unused-but-set-variable -Wno-unused-const-variable -fno-omit-frame-pointer -fno-optimize-sibling-calls -fno-var-tracking-assignments -pg -mfentry -DCC_USING_FENTRY -Wdeclaration-after-statement -Wno-pointer-sign -fno-strict-overflow -fconserve-stack -Werror=implicit-int -Werror=strict-prototypes -Werror=date-time -Werror=incompatible-pointer-types -DCC_HAVE_ASM_GOTO -I /run/media/adithya/Media/Adithya-Backup/Programs/Kernel-Modules/K-rack/Exercises/Exercise15/  -DMODULE  -DKBUILD_BASENAME='"mount"'  -DKBUILD_MODNAME='"myfs"' -c -o /run/media/adithya/Media/Adithya-Backup/Programs/Kernel-Modules/K-rack/Exercises/Exercise15/.tmp_mount.o /run/media/adithya/Media/Adithya-Backup/Programs/Kernel-Modules/K-rack/Exercises/Exercise15/mount.c
+cmd_/run/media/adithya/Media/Adithya-Backup/Programs/Kernel-Modules/K-rack/myfs/fstype.o := gcc -Wp,-MD,/run/media/adithya/Media/Adithya-Backup/Programs/Kernel-Modules/K-rack/myfs/.fstype.o.d  -nostdinc -isystem /usr/lib/gcc/x86_64-pc-linux-gnu/6.2.1/include -I./arch/x86/include -I./arch/x86/include/generated/uapi -I./arch/x86/include/generated  -I./include -I./arch/x86/include/uapi -I./include/uapi -I./include/generated/uapi -include ./include/linux/kconfig.h -D__KERNEL__ -Wall -Wundef -Wstrict-prototypes -Wno-trigraphs -fno-strict-aliasing -fno-common -Werror-implicit-function-declaration -Wno-format-security -std=gnu89 -fno-PIE -mno-sse -mno-mmx -mno-sse2 -mno-3dnow -mno-avx -m64 -falign-jumps=1 -falign-loops=1 -mno-80387 -mno-fp-ret-in-387 -mpreferred-stack-boundary=3 -mskip-rax-setup -mtune=generic -mno-red-zone -mcmodel=kernel -funit-at-a-time -maccumulate-outgoing-args -DCONFIG_AS_CFI=1 -DCONFIG_AS_CFI_SIGNAL_FRAME=1 -DCONFIG_AS_CFI_SECTIONS=1 -DCONFIG_AS_FXSAVEQ=1 -DCONFIG_AS_SSSE3=1 -DCONFIG_AS_CRC32=1 -DCONFIG_AS_AVX=1 -DCONFIG_AS_AVX2=1 -DCONFIG_AS_AVX512=1 -DCONFIG_AS_SHA1_NI=1 -DCONFIG_AS_SHA256_NI=1 -pipe -Wno-sign-compare -fno-asynchronous-unwind-tables -fno-delete-null-pointer-checks -Wno-frame-address -O2 --param=allow-store-data-races=0 -Wframe-larger-than=2048 -fstack-protector-strong -Wno-unused-but-set-variable -Wno-unused-const-variable -fno-omit-frame-pointer -fno-optimize-sibling-calls -fno-var-tracking-assignments -pg -mfentry -DCC_USING_FENTRY -Wdeclaration-after-statement -Wno-pointer-sign -fno-strict-overflow -fconserve-stack -Werror=implicit-int -Werror=strict-prototypes -Werror=date-time -Werror=incompatible-pointer-types -DCC_HAVE_ASM_GOTO -I /run/media/adithya/Media/Adithya-Backup/Programs/Kernel-Modules/K-rack/myfs/  -DMODULE  -DKBUILD_BASENAME='"fstype"'  -DKBUILD_MODNAME='"myfs"' -c -o /run/media/adithya/Media/Adithya-Backup/Programs/Kernel-Modules/K-rack/myfs/.tmp_fstype.o /run/media/adithya/Media/Adithya-Backup/Programs/Kernel-Modules/K-rack/myfs/fstype.c
 
-source_/run/media/adithya/Media/Adithya-Backup/Programs/Kernel-Modules/K-rack/Exercises/Exercise15/mount.o := /run/media/adithya/Media/Adithya-Backup/Programs/Kernel-Modules/K-rack/Exercises/Exercise15/mount.c
+source_/run/media/adithya/Media/Adithya-Backup/Programs/Kernel-Modules/K-rack/myfs/fstype.o := /run/media/adithya/Media/Adithya-Backup/Programs/Kernel-Modules/K-rack/myfs/fstype.c
 
-deps_/run/media/adithya/Media/Adithya-Backup/Programs/Kernel-Modules/K-rack/Exercises/Exercise15/mount.o := \
+deps_/run/media/adithya/Media/Adithya-Backup/Programs/Kernel-Modules/K-rack/myfs/fstype.o := \
   include/linux/fs.h \
     $(wildcard include/config/sysfs.h) \
     $(wildcard include/config/smp.h) \
@@ -17,6 +17,7 @@ deps_/run/media/adithya/Media/Adithya-Backup/Programs/Kernel-Modules/K-rack/Exer
     $(wildcard include/config/file/locking.h) \
     $(wildcard include/config/mmu.h) \
     $(wildcard include/config/quota.h) \
+    $(wildcard include/config/blk/dev/loop.h) \
     $(wildcard include/config/fs/dax.h) \
     $(wildcard include/config/mandatory/file/locking.h) \
     $(wildcard include/config/block.h) \
@@ -593,8 +594,8 @@ deps_/run/media/adithya/Media/Adithya-Backup/Programs/Kernel-Modules/K-rack/Exer
   include/uapi/linux/fcntl.h \
   arch/x86/include/uapi/asm/fcntl.h \
   include/uapi/asm-generic/fcntl.h \
-  /run/media/adithya/Media/Adithya-Backup/Programs/Kernel-Modules/K-rack/Exercises/Exercise15/myfs.h \
+  /run/media/adithya/Media/Adithya-Backup/Programs/Kernel-Modules/K-rack/myfs/myfs.h \
 
-/run/media/adithya/Media/Adithya-Backup/Programs/Kernel-Modules/K-rack/Exercises/Exercise15/mount.o: $(deps_/run/media/adithya/Media/Adithya-Backup/Programs/Kernel-Modules/K-rack/Exercises/Exercise15/mount.o)
+/run/media/adithya/Media/Adithya-Backup/Programs/Kernel-Modules/K-rack/myfs/fstype.o: $(deps_/run/media/adithya/Media/Adithya-Backup/Programs/Kernel-Modules/K-rack/myfs/fstype.o)
 
-$(deps_/run/media/adithya/Media/Adithya-Backup/Programs/Kernel-Modules/K-rack/Exercises/Exercise15/mount.o):
+$(deps_/run/media/adithya/Media/Adithya-Backup/Programs/Kernel-Modules/K-rack/myfs/fstype.o):

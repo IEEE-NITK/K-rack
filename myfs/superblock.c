@@ -129,7 +129,7 @@ int myfs_fill_sb(
         };
      */
 
-    sb->s_magic = MYFS_MAGIC_NUMBER;
+    sb->s_magic = MCRYPTFS_MAGIC_NUMBER;
     /*
      *  MYFS_MAGIC_NUMBER must be defined in /include/api/linux/magic.h
      *  and it must be unique.
@@ -197,9 +197,13 @@ int myfs_fill_sb(
     root->i_ino = 0;
     root->i_sb = sb;
     root->i_atime = root->i_mtime = root->i_ctime = CURRENT_TIME;
+	root->i_op = &simple_dir_inode_operations;
+	root->i_fop = &simple_dir_operations;
 
-    inode_init_owner(root,NULL,S_IFDIR);
 
+    inode_init_owner(root,NULL,S_IFDIR|0777);
+	
+	
     sb->s_root = d_make_root(root);
     /*
      *  Definition found in linux/fs/dcache.c
@@ -217,6 +221,9 @@ int myfs_fill_sb(
         return res;
       }
      */
+    
+	
+    
     if (!sb->s_root)
     {
         pr_err("root creation failed\n");
@@ -227,11 +234,18 @@ int myfs_fill_sb(
 
 }
 
+/*static struct dentry *make_new_inode()*/
+/*{*/
+/*	return NULL;*/
+/*}*/
+
 void myfs_put_super(struct super_block *sb)
 {
-    pr_debug("aufs super block destroyed\n");
+    pr_debug("mcryptfs super block destroyed\n");
 }
 
 struct super_operations const myfs_super_ops = {
     .put_super = myfs_put_super,
+    .statfs	   = simple_statfs,
+    .drop_inode= generic_delete_inode,
 };

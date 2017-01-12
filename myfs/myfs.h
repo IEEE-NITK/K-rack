@@ -1,5 +1,5 @@
 #include<linux/fs.h>
-#define MYFS_MAGIC_NUMBER 0xAAFF2348
+#define MCRYPTFS_MAGIC_NUMBER 0xAAFF2348
 
 extern struct file_system_type myfs_type;
 /*

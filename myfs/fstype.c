@@ -67,7 +67,7 @@
 
 struct file_system_type myfs_type = {
     .owner = THIS_MODULE,
-    .name  = "myfs",
+    .name  = "mcryptfs",
     .mount = myfs_mount,
     .kill_sb = kill_block_super,
     .fs_flags = FS_REQUIRES_DEV,
