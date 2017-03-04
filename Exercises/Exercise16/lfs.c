@@ -149,11 +149,12 @@ static struct dentry *lfs_create_file (struct super_block *sb,
  */
 	qname.name = name;
 	qname.len = strlen (name);
-	qname.hash = full_name_hash(NULL,name, qname.len);
+
 /*
  * Now we can create our dentry and the inode to go with it.
  */
 	dentry = d_alloc(dir, &qname);
+	qname.hash = full_name_hash(dentry,name, qname.len);
 	if (! dentry)
 		goto out;
 	inode = lfs_make_inode(sb, S_IFREG | 0644);
@@ -190,8 +191,9 @@ static struct dentry *lfs_create_dir (struct super_block *sb,
 
 	qname.name = name;
 	qname.len = strlen (name);
-	qname.hash = full_name_hash(NULL,name, qname.len);
+
 	dentry = d_alloc(parent, &qname);
+	qname.hash = full_name_hash(dentry, name, qname.len);
 	if (! dentry)
 		goto out;
 
@@ -305,7 +307,7 @@ static struct dentry *lfs_get_super(struct file_system_type *fst,
 
 static struct file_system_type lfs_type = {
 	.owner 		= THIS_MODULE,
-	.name		= "lwnfs",
+	.name		= "lfs",
 	.mount		= lfs_get_super,
 	.kill_sb	= kill_litter_super,
 };
