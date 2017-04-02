@@ -19,13 +19,7 @@ int device_open(struct inode * file, struct file * filep)
     }
 
     device_count++;
-    /*
-     *  Set the contents of the file with this operation.
-     *  The read function reads from the buffer_ptr, hence
-        point the poor chap in the right direction.
-     */
-    sprintf ( message_buffer , "This device has performed %d \
-    read operations.\n" , counter++ );
+    
     buffer_ptr = message_buffer;
 
     try_module_get(THIS_MODULE);
